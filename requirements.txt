@@ -1,0 +1,8 @@
+streamlit
+transformers==4.44.2
+sentence-transformers
+datasets
+scikit-learn
+pandas
+torch
+nltk
