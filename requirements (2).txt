@@ -1,7 +1,0 @@
-streamlit
-transformers==4.44.2
-torch
-scikit-learn
-numpy
-pandas
-protobuf
