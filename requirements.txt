@@ -1,0 +1,9 @@
+streamlit
+transformers
+peft
+torch
+scikit-learn
+pandas
+numpy
+accelerate
+bitsandbytes
