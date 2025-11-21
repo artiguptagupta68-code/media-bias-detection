@@ -1,1 +1,0 @@
-streamlit>=1.25\ntransformers\npeft\nbitsandbytes\nsentence-transformers\ndatasets\ntorch\nscikit-learn\npandas\njoblib\nnltk
