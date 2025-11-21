@@ -1,0 +1,8 @@
+ streamlit
+transformers==4.37.2
+torch
+sentence_transformers
+peft==0.10.0
+scikit-learn
+numpy
+pandas
