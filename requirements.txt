@@ -1,6 +1,0 @@
-
-streamlit
-transformers==4.44.0
-torch
-sentence-transformers
-scikit-learn
