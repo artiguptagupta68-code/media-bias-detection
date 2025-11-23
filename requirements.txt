@@ -1,0 +1,10 @@
+streamlit
+torch
+transformers
+peft==0.7.1
+accelerate
+sentencepiece
+protobuf
+numpy
+pydantic
+typing-extensions
