@@ -1,6 +1,0 @@
-torch
-transformers
-streamlit
-peft
-accelerate
-scikit-learn
