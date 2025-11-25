@@ -23,15 +23,12 @@ def preprocess_text(text: str) -> str:
     return text
 
 # ---------------------------
-# LOAD MODEL + TOKENIZER
+# LOAD MODEL + TOKENIZER (Direct, No cache)
 # ---------------------------
-@st.cache_resource
-def load_model():
-    tokenizer = AutoTokenizer.from_pretrained(HF_MODEL_ID)
-    model = AutoModelForSequenceClassification.from_pretrained(HF_MODEL_ID)
-    model.to(DEVICE)
-    model.eval()
-    return tokenizer, model
+tokenizer = AutoTokenizer.from_pretrained(HF_MODEL_ID)
+model = AutoModelForSequenceClassification.from_pretrained(HF_MODEL_ID)
+model.to(DEVICE)
+model.eval()
 
 # ---------------------------
 # LABEL MAP
@@ -41,7 +38,7 @@ label_map = {0: "NEUTRAL 🟦", 1: "LEFT-LEANING 🔵", 2: "RIGHT-LEANING 🔴"}
 # ---------------------------
 # PREDICTION FUNCTION
 # ---------------------------
-def predict_bias(text, tokenizer, model):
+def predict_bias(text):
     cleaned = preprocess_text(text)
     inputs = tokenizer(cleaned, return_tensors="pt", truncation=True, padding=True).to(DEVICE)
     with torch.no_grad():
@@ -56,14 +53,13 @@ st.set_page_config(page_title="Media Bias Detection", layout="centered")
 st.title("📰 Media Bias Detection (DistilBERT + LoRA)")
 st.write("Enter a news headline to classify its political bias:")
 
-tokenizer, model = load_model()  # <--- Fixed! Single function call
-
 headline = st.text_input("Enter News Headline:")
+
 if st.button("Predict Bias"):
     if not headline.strip():
         st.warning("Please enter a headline.")
     else:
-        result = predict_bias(headline, tokenizer, model)
+        result = predict_bias(headline)
         st.success(f"Predicted Bias: **{result}**")
 
 st.caption("Model: DistilBERT + LoRA • Trained on 4000 synthetic media headlines")
