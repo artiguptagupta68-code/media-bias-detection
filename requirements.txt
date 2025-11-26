@@ -1,0 +1,13 @@
+"""streamlit
+transformers==4.42.3
+datasets==2.19.1
+peft==0.11.1
+accelerate==0.30.1
+scikit-learn
+pandas
+numpy
+torch==2.2.1
+joblib
+pillow
+matplotlib
+seaborn"""
