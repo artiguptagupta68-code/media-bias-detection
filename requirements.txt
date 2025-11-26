@@ -1,7 +1,0 @@
-streamlit
-torch
-transformers==4.39.3
-peft==0.10.0
-accelerate
-sentencepiece
-protobuf
